@@ -1,0 +1,11 @@
+section {
+  height: 100vh;
+
+  &:first-child {
+    height: calc(100vh - 5rem);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
