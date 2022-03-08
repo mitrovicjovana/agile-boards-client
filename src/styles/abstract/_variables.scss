@@ -1,0 +1,16 @@
+@use "./functions" as *;
+
+// Breakpoints
+$breakpoints-up: (
+  "small": rem(480px),
+  "medium": rem(860px),
+  "large": rem(1024px),
+  "xlarge": rem(1400px),
+);
+
+$breakpoints-down: (
+  "xsmall": rem(479px),
+  "small": rem(859px),
+  "medium": rem(1023px),
+  "large": rem(1339px),
+);

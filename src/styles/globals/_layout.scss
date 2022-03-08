@@ -1,0 +1,30 @@
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+.container {
+  margin: 0 auto;
+  width: 92%;
+  min-width: rem(270px);
+  max-width: rem(420px);
+
+  @include breakpoint(small) {
+    width: 90%;
+    min-width: rem(420px);
+    max-width: rem(800px);
+  }
+
+  @include breakpoint(medium) {
+    min-width: rem(800px);
+    max-width: rem(970px);
+  }
+
+  @include breakpoint(large) {
+    width: 88%;
+    min-width: rem(970px);
+    max-width: rem(1200px);
+  }
+
+  @include breakpoint(xlarge) {
+    max-width: rem(1400px);
+  }
+}
