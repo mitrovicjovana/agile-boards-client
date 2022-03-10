@@ -1,13 +1,7 @@
-<nav>
-  <div
-    fxLayout="row"
-    fxLayoutAlign="space-between center"
-    class="container nav-items"
-  >
-    <h1>Agile Boards</h1>
-    <div fxLayout="row" fxLayoutGap="8">
-      <a mat-flat-button color="primary" href="#">Sign Up</a>
-      <a mat-button color="primary" fxLayoutGap="2" href="#">Login</a>
-    </div>
+<nav fxLayout="row" fxLayoutAlign="space-between center" class="nav container">
+  <h1>Agile Boards</h1>
+  <div fxLayout="row" fxLayoutGap="8">
+    <a mat-flat-button color="primary" routerLink="signup">Sign Up</a>
+    <a mat-stroked-button color="primary" routerLink="login">Login</a>
   </div>
 </nav>

@@ -1,7 +1,5 @@
-.nav-items {
-  height: 5rem;
+@use "../../../../styles/abstract/abstract" as *;
 
-  h1 {
-    margin: 0;
-  }
+.nav {
+  height: rem(80px);
 }

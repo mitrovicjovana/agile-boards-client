@@ -2,29 +2,26 @@
 @use "../abstract/mixins" as *;
 
 .container {
-  margin: 0 auto;
-  width: 92%;
-  min-width: rem(270px);
-  max-width: rem(420px);
+  padding: 0 rem(24px);
+  // background-color: aqua;
 
   @include breakpoint(small) {
-    width: 90%;
-    min-width: rem(420px);
-    max-width: rem(800px);
+    padding: 0 max(rem(32px), 5vw);
+    // background-color: goldenrod;
   }
 
   @include breakpoint(medium) {
-    min-width: rem(800px);
-    max-width: rem(970px);
+    padding: 0 max(rem(42px), 8vw);
+    // background-color: blueviolet;
   }
 
   @include breakpoint(large) {
-    width: 88%;
-    min-width: rem(970px);
-    max-width: rem(1200px);
+    padding: 0 max(rem(56px), 10vw);
+    // background-color: paleturquoise;
   }
 
   @include breakpoint(xlarge) {
-    max-width: rem(1400px);
+    padding: 0 max(rem(64px), 12vw);
+    // background-color: aqua;
   }
 }

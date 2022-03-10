@@ -5,6 +5,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./auth/auth.module').then((route) => route.AuthModule),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
