@@ -2,4 +2,12 @@
 
 .nav {
   height: rem(80px);
+
+  h1 {
+    margin-bottom: unset;
+  }
+
+  .nav-btn {
+    width: rem(80px);
+  }
 }
