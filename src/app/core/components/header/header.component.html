@@ -1,4 +1,9 @@
-<nav fxLayout="row" fxLayoutAlign="space-between center" class="nav container">
+<nav
+  *ngIf="headerService.isVisible"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  class="nav container"
+>
   <h1>
     <a routerLink="">Agile Boards</a>
   </h1>

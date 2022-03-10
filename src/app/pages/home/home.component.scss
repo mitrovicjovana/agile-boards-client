@@ -2,6 +2,7 @@
 
 section {
   padding: rem(16px) 0;
+
   @include breakpoint(medium) {
     height: 100vh;
     padding: rem(24px) 0;
