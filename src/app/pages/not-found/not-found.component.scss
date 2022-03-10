@@ -1,0 +1,9 @@
+@use "../../../styles/abstract/abstract" as *;
+
+section {
+  height: 100vh;
+
+  h1 {
+    text-transform: uppercase;
+  }
+}

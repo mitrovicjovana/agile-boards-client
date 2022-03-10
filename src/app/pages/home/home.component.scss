@@ -1,0 +1,35 @@
+@use "../../../styles/abstract/abstract" as *;
+
+section {
+  padding: rem(16px) 0;
+
+  @include breakpoint(medium) {
+    height: 100vh;
+    padding: rem(24px) 0;
+
+    &:first-child {
+      height: calc(100vh - 5rem);
+    }
+  }
+
+  h1,
+  h2 {
+    text-transform: uppercase;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  img {
+    object-fit: contain;
+  }
+
+  img {
+    width: 90vw;
+
+    @include breakpoint(medium) {
+      height: 100%;
+    }
+  }
+}

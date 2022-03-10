@@ -1,0 +1,28 @@
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+.container {
+  height: 100%;
+  padding: 0 rem(24px);
+  // background-color: aqua;
+
+  @include breakpoint(small) {
+    padding: 0 max(rem(32px), 5vw);
+    // background-color: goldenrod;
+  }
+
+  @include breakpoint(medium) {
+    padding: 0 max(rem(42px), 8vw);
+    // background-color: blueviolet;
+  }
+
+  @include breakpoint(large) {
+    padding: 0 max(rem(56px), 10vw);
+    // background-color: paleturquoise;
+  }
+
+  @include breakpoint(xlarge) {
+    padding: 0 max(rem(64px), 12vw);
+    // background-color: aqua;
+  }
+}
