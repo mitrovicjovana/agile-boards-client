@@ -1,0 +1,31 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+section {
+  @include breakpoint(medium) {
+    height: 100vh;
+  }
+
+  .img-container {
+    @include breakpoint-down(small) {
+      display: none !important;
+    }
+  }
+
+  .form-container {
+    min-height: 100vh;
+    background-color: #fafafa;
+  }
+
+  .signup-form {
+    width: 100%;
+    margin: 0;
+  }
+
+  .input-container {
+    width: 100% !important;
+  }
+
+  input {
+    // width: rem(500px) !important;
+  }
+}
