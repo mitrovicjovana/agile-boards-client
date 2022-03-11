@@ -16,7 +16,7 @@
     <form class="example-form signup-form">
       <div
         fxLayout="column"
-        fxLayoutAlign="center center"
+        fxLayoutAlign="center flex-start"
         class="input-container"
       >
         <mat-form-field
@@ -25,7 +25,7 @@
           floatLabel="always"
         >
           <mat-label>First name</mat-label>
-          <input matInput placeholder="Ex. Pizza" />
+          <input matInput placeholder="Type your first name" />
         </mat-form-field>
 
         <mat-form-field
@@ -34,7 +34,7 @@
           floatLabel="always"
         >
           <mat-label>Last name</mat-label>
-          <input matInput placeholder="Ex. Pizza" />
+          <input matInput placeholder="Type your last name" />
         </mat-form-field>
 
         <mat-form-field
@@ -43,7 +43,7 @@
           floatLabel="always"
         >
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Ex. Pizza" />
+          <input matInput placeholder="Pick an username" />
         </mat-form-field>
 
         <mat-form-field
@@ -52,7 +52,7 @@
           floatLabel="always"
         >
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Ex. Pizza" />
+          <input matInput placeholder="Type your email" />
         </mat-form-field>
 
         <mat-form-field
@@ -61,7 +61,7 @@
           floatLabel="always"
         >
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Ex. Pizza" type="password" />
+          <input matInput placeholder="Type password" type="password" />
         </mat-form-field>
 
         <mat-form-field
@@ -70,10 +70,14 @@
           floatLabel="always"
         >
           <mat-label>Confirm password</mat-label>
-          <input matInput placeholder="Ex. Pizza" type="password" />
+          <input matInput placeholder="Confirm your password" type="password" />
         </mat-form-field>
 
         <button type="submit" mat-flat-button color="primary">Sign Up</button>
+
+        <a routerLink="/login" class="login-link"
+          >Already have an account? Go to <span>login.</span>
+        </a>
       </div>
     </form>
   </div>

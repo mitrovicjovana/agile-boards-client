@@ -1,1 +1,34 @@
-<p>login works!</p>
+<section fxLayoutAlign="center center">
+  <div class="form-container">
+    <form class="example-form login-form">
+      <div
+        fxLayout="column"
+        fxLayoutAlign="center flex-start"
+        class="input-container"
+      >
+        <mat-form-field
+          class="example-full-width"
+          appearance="standard"
+          floatLabel="always"
+        >
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Type your username" />
+        </mat-form-field>
+
+        <mat-form-field
+          class="example-full-width"
+          appearance="standard"
+          floatLabel="always"
+        >
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Type your passowrd" type="password" />
+        </mat-form-field>
+
+        <button type="submit" mat-flat-button color="primary">Login</button>
+        <a routerLink="/signup" class="login-link"
+          >Don't have an account yet? Go to <span>sign up.</span>
+        </a>
+      </div>
+    </form>
+  </div>
+</section>

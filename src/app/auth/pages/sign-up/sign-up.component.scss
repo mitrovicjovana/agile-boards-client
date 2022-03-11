@@ -13,19 +13,41 @@ section {
 
   .form-container {
     min-height: 100vh;
-    background-color: #fafafa;
+    padding: rem(32px);
   }
 
   .signup-form {
     width: 100%;
+    max-width: rem(360px);
     margin: 0;
   }
 
   .input-container {
-    width: 100% !important;
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-label {
+    font-weight: 800;
+    font-size: rem(16px);
   }
 
   input {
-    // width: rem(500px) !important;
+    margin-top: rem(6px);
+  }
+
+  button {
+    width: rem(100px);
+  }
+
+  .login-link {
+    margin-top: rem(16px);
+
+    span {
+      font-weight: 600;
+    }
   }
 }
