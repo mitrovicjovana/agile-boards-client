@@ -1,6 +1,24 @@
 <section fxLayoutAlign="center center">
-  <div class="form-container">
-    <form class="example-form login-form">
+  <div
+    fxFlex.gt-sm="50"
+    fxLayout.gt-sm="column"
+    fxLayoutAlign.gt-sm="center center"
+    class="img-container"
+  >
+    <img src="../../../../assets/images/artificial-intelligence.png" alt="" />
+  </div>
+  <div
+    fxFlex.lt-md="100"
+    fxFlex.gt-sm="50"
+    fxLayoutAlign="center center"
+    class="form-container"
+  >
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="submitLogin()"
+      class="example-form login-form"
+      autocomplete="off"
+    >
       <div
         fxLayout="column"
         fxLayoutAlign="center flex-start"
@@ -12,7 +30,14 @@
           floatLabel="always"
         >
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Type your username" />
+          <input
+            matInput
+            placeholder="Type your username"
+            [formControl]="username"
+          />
+          <mat-error *ngIf="username.hasError('required')">
+            Username is required.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field
@@ -21,7 +46,15 @@
           floatLabel="always"
         >
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Type your passowrd" type="password" />
+          <input
+            matInput
+            placeholder="Type your passowrd"
+            type="password"
+            [formControl]="password"
+          />
+          <mat-error *ngIf="password.hasError('required')">
+            Password is required.
+          </mat-error>
         </mat-form-field>
 
         <button type="submit" mat-flat-button color="primary">Login</button>

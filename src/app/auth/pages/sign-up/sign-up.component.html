@@ -1,19 +1,16 @@
 <section>
   <div
-    fxFlex.gt-sm="50"
-    fxLayout.gt-sm="column"
-    fxLayoutAlign.gt-sm="center center"
-    class="img-container"
-  >
-    <img src="../../../../assets/images/space-discovery.png" alt="" />
-  </div>
-  <div
     fxFlex.lt-md="100"
     fxFlex.gt-sm="50"
     fxLayoutAlign="center center"
     class="form-container"
   >
-    <form class="example-form signup-form">
+    <form
+      [formGroup]="signUpForm"
+      (ngSubmit)="submitSignUp()"
+      autocomplete="off"
+      class="example-form signup-form"
+    >
       <div
         fxLayout="column"
         fxLayoutAlign="center flex-start"
@@ -25,7 +22,17 @@
           floatLabel="always"
         >
           <mat-label>First name</mat-label>
-          <input matInput placeholder="Type your first name" />
+          <input
+            matInput
+            placeholder="Type your first name"
+            [formControl]="firstName"
+          />
+          <mat-error *ngIf="firstName.hasError('required')">
+            First name is required.
+          </mat-error>
+          <mat-error *ngIf="firstName.hasError('pattern')">
+            First name can contain only letters and spaces.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field
@@ -34,7 +41,17 @@
           floatLabel="always"
         >
           <mat-label>Last name</mat-label>
-          <input matInput placeholder="Type your last name" />
+          <input
+            matInput
+            placeholder="Type your last name"
+            [formControl]="lastName"
+          />
+          <mat-error *ngIf="lastName.hasError('required')">
+            Last name is required.
+          </mat-error>
+          <mat-error *ngIf="lastName.hasError('pattern')">
+            Last name can contain only letters spaces.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field
@@ -43,7 +60,17 @@
           floatLabel="always"
         >
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Pick an username" />
+          <input
+            matInput
+            placeholder="Pick an username"
+            [formControl]="username"
+          />
+          <mat-error *ngIf="username.hasError('required')">
+            Username is required.
+          </mat-error>
+          <mat-error *ngIf="username.hasError('pattern')">
+            Username can contain only letters, numbers, dots and dashes.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field
@@ -52,7 +79,13 @@
           floatLabel="always"
         >
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Type your email" />
+          <input matInput placeholder="Type your email" [formControl]="email" />
+          <mat-error *ngIf="email.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="email.hasError('email')">
+            Entered email is not valid.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field
@@ -61,7 +94,18 @@
           floatLabel="always"
         >
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Type password" type="password" />
+          <input
+            matInput
+            placeholder="Type password"
+            type="password"
+            [formControl]="password"
+          />
+          <mat-error *ngIf="password.hasError('required')">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="password.hasError('minlength')">
+            Password must be at least 6 characters long.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field
@@ -70,7 +114,18 @@
           floatLabel="always"
         >
           <mat-label>Confirm password</mat-label>
-          <input matInput placeholder="Confirm your password" type="password" />
+          <input
+            matInput
+            placeholder="Confirm your password"
+            type="password"
+            [formControl]="confirmPassword"
+          />
+          <mat-error *ngIf="confirmPassword.hasError('required')">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="confirmPassword.hasError('matching')">
+            Passwords must match.
+          </mat-error>
         </mat-form-field>
 
         <button type="submit" mat-flat-button color="primary">Sign Up</button>
@@ -80,5 +135,13 @@
         </a>
       </div>
     </form>
+  </div>
+  <div
+    fxFlex.gt-sm="50"
+    fxLayout.gt-sm="column"
+    fxLayoutAlign.gt-sm="center center"
+    class="img-container"
+  >
+    <img src="../../../../assets/images/space-discovery.png" alt="" />
   </div>
 </section>
