@@ -1,0 +1,43 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+section {
+  height: 100vh;
+
+  .img-container {
+    padding: rem(32px) 0 rem(32px) 5vw;
+
+    @include breakpoint-down(small) {
+      display: none !important;
+    }
+  }
+
+  .form-container {
+    padding: rem(32px);
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-label {
+    font-weight: 800;
+    font-size: rem(16px);
+  }
+
+  input {
+    margin-top: rem(6px);
+  }
+
+  button {
+    width: rem(100px);
+    margin-top: rem(16px);
+  }
+
+  .login-link {
+    margin-top: rem(16px);
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+section {
+  @include breakpoint(medium) {
+    height: 100vh;
+  }
+
+  .img-container {
+    @include breakpoint-down(small) {
+      display: none !important;
+    }
+  }
+
+  .form-container {
+    min-height: 100vh;
+    padding: rem(32px);
+  }
+
+  .signup-form {
+    width: 100%;
+    max-width: rem(320px);
+  }
+
+  .input-container {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-label {
+    font-weight: 800;
+    font-size: rem(16px);
+  }
+
+  input {
+    margin-top: rem(6px);
+  }
+
+  button {
+    width: rem(100px);
+    margin-top: rem(16px);
+  }
+
+  .login-link {
+    margin-top: rem(16px);
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

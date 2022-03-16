@@ -7,7 +7,7 @@ export class HeaderService {
   isVisible!: boolean;
 
   constructor() {
-    this.isVisible = true;
+    this.isVisible = false;
   }
 
   hideHeader(): void {
