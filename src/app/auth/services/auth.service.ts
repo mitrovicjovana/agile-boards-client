@@ -4,6 +4,8 @@ import { SignUp } from '../models/SignUp';
 import { Login } from '../models/Login';
 import { catchError, map, Observable, tap, of } from 'rxjs';
 
+const ROOT_URL = 'http://localhost:8080/api';
+const TOKEN = 'TOKEN';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -14,14 +16,11 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly ROOT_URL = 'http://localhost:8080/api';
-  private readonly TOKEN = 'TOKEN';
-
   constructor(private http: HttpClient) {}
 
   public login(loginRequest: Login): Observable<boolean> {
     return this.http
-      .post(this.ROOT_URL + '/auth/login', loginRequest, {
+      .post(ROOT_URL + '/auth/login', loginRequest, {
         ...httpOptions,
         observe: 'response',
         responseType: 'text',
@@ -40,7 +39,7 @@ export class AuthService {
 
   public signUp(signUpRequest: SignUp): Observable<boolean> {
     return this.http
-      .post(this.ROOT_URL + '/auth/signup', signUpRequest, {
+      .post(ROOT_URL + '/auth/signup', signUpRequest, {
         ...httpOptions,
         observe: 'response',
         responseType: 'text',
@@ -54,24 +53,30 @@ export class AuthService {
       );
   }
 
-  public logout() {}
-
-  public isLoggedIn(): boolean {
-    return false;
+  public logout() {
+    // TODO: Make http req to logout
+    localStorage.removeItem(TOKEN);
   }
 
-  public getToken(): string {
-    return '';
+  public isLoggedIn(): boolean {
+    return this.getToken() !== null;
+  }
+
+  public getToken(): string | null {
+    return localStorage.getItem(TOKEN);
   }
 
   public storeToken(token: string | null) {
-    if (token !== null) console.log(token);
+    if (token !== null) {
+      localStorage.removeItem(TOKEN);
+      localStorage.setItem(TOKEN, token);
+    }
   }
 
   // TODO: move to user service
   public checkExist(fieldName: string, fieldValue: string): Observable<string> {
     return this.http.get(
-      this.ROOT_URL + '/user/exist/' + fieldName + '/' + fieldValue,
+      ROOT_URL + '/user/exist/' + fieldName + '/' + fieldValue,
       {
         ...httpOptions,
         responseType: 'text',

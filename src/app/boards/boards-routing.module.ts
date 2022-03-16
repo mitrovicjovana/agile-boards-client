@@ -12,7 +12,8 @@ const routes: Routes = [
     children: [
       { path: 'projects', pathMatch: 'full', component: ProjectsComponent },
       { path: 'tasks', pathMatch: 'full', component: TasksComponent },
-      { path: 'user', pathMatch: 'full', component: UserComponent },
+      { path: 'profile', pathMatch: 'full', component: UserComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'tasks' },
     ],
   },
 ];

@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HeaderService } from 'src/app/core/services/header.service';
 import { Login } from '../../models/Login';
 import { AuthService } from '../../services/auth.service';
 
@@ -23,8 +24,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private headerService: HeaderService
+  ) {
+    if (this.authService.isLoggedIn()) router.navigateByUrl('/boards');
+    this.headerService.hideHeader();
+  }
 
   ngOnInit(): void {
     this.buildFormGroup();

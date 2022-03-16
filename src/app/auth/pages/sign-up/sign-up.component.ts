@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HeaderService } from 'src/app/core/services/header.service';
 import { SignUp } from '../../models/SignUp';
 import { AuthService } from '../../services/auth.service';
 import { CustomValidatorsService } from '../../services/custom-validators.service';
@@ -29,8 +30,12 @@ export class SignUpComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private customValidator: CustomValidatorsService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private headerService: HeaderService
+  ) {
+    if (this.authService.isLoggedIn()) router.navigateByUrl('/boards');
+    this.headerService.hideHeader();
+  }
 
   ngOnInit(): void {
     this.buildFormGroup();
