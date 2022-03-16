@@ -5,9 +5,10 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignUp } from '../../models/SignUp';
-import { matchValidator } from '../../helpers/matchValidator';
 import { AuthService } from '../../services/auth.service';
+import { CustomValidatorsService } from '../../services/custom-validators.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,10 +23,13 @@ export class SignUpComponent implements OnInit {
   email!: FormControl;
   password!: FormControl;
   confirmPassword!: FormControl;
+  signUpError: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private customValidator: CustomValidatorsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +37,8 @@ export class SignUpComponent implements OnInit {
   }
 
   public submitSignUp(): void {
+    this.signUpError = '';
+
     if (this.signUpForm.valid) {
       const signUpRequest: SignUp = {
         firstName: this.firstName.value,
@@ -42,7 +48,11 @@ export class SignUpComponent implements OnInit {
         password: this.password.value,
       };
 
-      console.log(signUpRequest);
+      this.authService.signUp(signUpRequest).subscribe((res) => {
+        this.signUpForm.reset();
+        if (res) this.router.navigateByUrl('/registration-succesful');
+        else this.signUpError = 'Something went wrong, please try again.';
+      });
     }
   }
 
@@ -68,19 +78,66 @@ export class SignUpComponent implements OnInit {
       Validators.required,
       Validators.pattern('[a-zA-Z\\s]*'),
     ]);
-    this.username = new FormControl('', [
-      Validators.required,
-      Validators.pattern('[a-zA-Z0-9\\.\\-]*'),
-    ]);
-    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.username = new FormControl(
+      '',
+      [Validators.required, Validators.pattern('[a-zA-Z0-9\\.\\-]*')],
+      [this.customValidator.existValidator('username')]
+    );
+    this.email = new FormControl(
+      '',
+      [Validators.required, Validators.email],
+      [this.customValidator.existValidator('email')]
+    );
     this.password = new FormControl('', [
       Validators.required,
       Validators.minLength(6),
-      matchValidator('confirmPassword', true),
+      this.customValidator.matchValidator('confirmPassword', true),
     ]);
     this.confirmPassword = new FormControl('', [
       Validators.required,
-      matchValidator('password'),
+      this.customValidator.matchValidator('password'),
     ]);
+  }
+
+  public getFirstNameErrorMessage(): string {
+    if (this.firstName.hasError('required')) return 'First name is required.';
+    return this.firstName.hasError('pattern')
+      ? ' First name can contain only letters and spaces.'
+      : '';
+  }
+
+  public getLastNameErrorMessage(): string {
+    if (this.lastName.hasError('required')) return 'Last name is required.';
+    return this.lastName.hasError('pattern')
+      ? 'Last name can contain only letters spaces.'
+      : '';
+  }
+
+  public getUsernamerrorMessage(): string {
+    if (this.username.hasError('required')) return 'Username is required.';
+    else if (this.username.hasError('pattern'))
+      return 'Username can contain only letters, numbers, dots and dashes.';
+    return this.username.hasError('exist') ? 'Username is already taken.' : '';
+  }
+
+  public getEmailErrorMessage(): string {
+    if (this.email.hasError('required')) return 'Email is required.';
+    else if (this.email.hasError('email')) return 'Email is not valid.';
+    return this.email.hasError('exist') ? 'Email is already taken.' : '';
+  }
+
+  public getPasswordErrorMessage(): string {
+    if (this.password.hasError('required')) return 'Password is required.';
+    return this.password.hasError('minlength')
+      ? 'Password must be at least 6 characters long.'
+      : '';
+  }
+
+  public getConfirmPasswordErrorMessage(): string {
+    if (this.confirmPassword.hasError('required'))
+      return 'Password is required.';
+    return this.confirmPassword.hasError('matching')
+      ? 'Passwords must match.'
+      : '';
   }
 }

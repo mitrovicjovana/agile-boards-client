@@ -27,11 +27,8 @@
             placeholder="Type your first name"
             [formControl]="firstName"
           />
-          <mat-error *ngIf="firstName.hasError('required')">
-            First name is required.
-          </mat-error>
-          <mat-error *ngIf="firstName.hasError('pattern')">
-            First name can contain only letters and spaces.
+          <mat-error>
+            {{ getFirstNameErrorMessage() }}
           </mat-error>
         </mat-form-field>
 
@@ -46,11 +43,8 @@
             placeholder="Type your last name"
             [formControl]="lastName"
           />
-          <mat-error *ngIf="lastName.hasError('required')">
-            Last name is required.
-          </mat-error>
-          <mat-error *ngIf="lastName.hasError('pattern')">
-            Last name can contain only letters spaces.
+          <mat-error>
+            {{ getLastNameErrorMessage() }}
           </mat-error>
         </mat-form-field>
 
@@ -65,11 +59,8 @@
             placeholder="Pick an username"
             [formControl]="username"
           />
-          <mat-error *ngIf="username.hasError('required')">
-            Username is required.
-          </mat-error>
-          <mat-error *ngIf="username.hasError('pattern')">
-            Username can contain only letters, numbers, dots and dashes.
+          <mat-error>
+            {{ getUsernamerrorMessage() }}
           </mat-error>
         </mat-form-field>
 
@@ -80,11 +71,8 @@
         >
           <mat-label>Email</mat-label>
           <input matInput placeholder="Type your email" [formControl]="email" />
-          <mat-error *ngIf="email.hasError('required')">
-            Email is required.
-          </mat-error>
-          <mat-error *ngIf="email.hasError('email')">
-            Entered email is not valid.
+          <mat-error>
+            {{ getEmailErrorMessage() }}
           </mat-error>
         </mat-form-field>
 
@@ -100,11 +88,8 @@
             type="password"
             [formControl]="password"
           />
-          <mat-error *ngIf="password.hasError('required')">
-            Password is required.
-          </mat-error>
-          <mat-error *ngIf="password.hasError('minlength')">
-            Password must be at least 6 characters long.
+          <mat-error>
+            {{ getPasswordErrorMessage() }}
           </mat-error>
         </mat-form-field>
 
@@ -120,14 +105,14 @@
             type="password"
             [formControl]="confirmPassword"
           />
-          <mat-error *ngIf="confirmPassword.hasError('required')">
-            Password is required.
-          </mat-error>
-          <mat-error *ngIf="confirmPassword.hasError('matching')">
-            Passwords must match.
+          <mat-error>
+            {{ getConfirmPasswordErrorMessage() }}
           </mat-error>
         </mat-form-field>
 
+        <mat-error>
+          {{ signUpError }}
+        </mat-error>
         <button type="submit" mat-flat-button color="primary">Sign Up</button>
 
         <a routerLink="/login" class="login-link"
