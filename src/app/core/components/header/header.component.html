@@ -7,7 +7,11 @@
   <h1>
     <a routerLink="/">Agile Boards</a>
   </h1>
-  <div fxLayout="row" fxLayoutGap="10">
+  <div
+    *ngIf="!authService.isLoggedIn(); else logedin"
+    fxLayout="row"
+    fxLayoutGap="10"
+  >
     <a mat-flat-button color="primary" routerLink="/signup" class="nav-btn"
       >Sign Up</a
     >
@@ -15,4 +19,12 @@
       >Login</a
     >
   </div>
+  <ng-template #logedin>
+    <div fxLayout="row" fxLayoutGap="10">
+      <span>username</span>
+      <button mat-icon-button color="primary" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </ng-template>
 </nav>

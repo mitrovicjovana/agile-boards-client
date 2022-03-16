@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatIconModule,
   ],
   exports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatIconModule,
   ],
 })
 export class SharedModule {}

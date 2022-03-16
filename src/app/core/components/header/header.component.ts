@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { HeaderService } from '../../services/header.service';
 
 @Component({
@@ -7,7 +9,17 @@ import { HeaderService } from '../../services/header.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public headerService: HeaderService) {}
+  constructor(
+    public headerService: HeaderService,
+    public authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
+
+  public logout() {
+    console.log('click');
+    this.authService.logout();
+    this.router.navigateByUrl('/');
+  }
 }

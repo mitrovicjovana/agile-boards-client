@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 import { LoginComponent } from './pages/login/login.component';
@@ -8,6 +9,6 @@ import { SuccessRegistrationComponent } from './pages/success-registration/succe
 
 @NgModule({
   declarations: [LoginComponent, SignUpComponent, SuccessRegistrationComponent],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RouterModule],
 })
 export class AuthModule {}
