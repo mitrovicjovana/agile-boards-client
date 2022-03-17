@@ -1,0 +1,30 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+.task {
+  margin-bottom: rem(24px);
+  width: 100%;
+  border-radius: rem(8px);
+  padding: rem(12px) rem(8px);
+  background-color: #f6f6f6;
+}
+
+.summary {
+  font-weight: 500;
+  font-size: rem(20px);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: rem(16px);
+    height: rem(16px);
+    border-radius: 50%;
+    right: 0;
+  }
+}
+
+h4 {
+  margin-top: rem(16px);
+  margin-bottom: 0;
+  color: #9a9a9a;
+}

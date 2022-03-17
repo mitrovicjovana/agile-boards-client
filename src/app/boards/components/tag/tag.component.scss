@@ -1,0 +1,9 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+span {
+  display: inline-block;
+  padding: rem(2px) rem(8px);
+  border-radius: rem(6px);
+  background-color: $accent-light;
+  margin-bottom: rem(6px);
+}
