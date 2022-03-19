@@ -11,6 +11,8 @@ import { BoardComponent } from './components/board/board.component';
 import { ColumnComponent } from './components/column/column.component';
 import { TaskComponent } from './components/task/task.component';
 import { TagComponent } from './components/tag/tag.component';
+import { ProjectListItemComponent } from './components/project-list-item/project-list-item.component';
+import { ProjectInfoComponent } from './components/project-info/project-info.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { TagComponent } from './components/tag/tag.component';
     ColumnComponent,
     TaskComponent,
     TagComponent,
+    ProjectListItemComponent,
+    ProjectInfoComponent,
   ],
   imports: [CommonModule, BoardsRoutingModule, SharedModule],
 })

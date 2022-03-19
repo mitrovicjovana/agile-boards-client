@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SignUp } from '../models/SignUp';
 import { Login } from '../models/Login';
-import { catchError, map, Observable, tap, of } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 
 const ROOT_URL = 'http://localhost:8080/api';
 const TOKEN = 'TOKEN';
@@ -73,7 +73,6 @@ export class AuthService {
     }
   }
 
-  // TODO: move to user service
   public checkExist(fieldName: string, fieldValue: string): Observable<string> {
     return this.http.get(
       ROOT_URL + '/user/exist/' + fieldName + '/' + fieldValue,
