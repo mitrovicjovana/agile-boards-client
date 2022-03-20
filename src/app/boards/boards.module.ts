@@ -15,6 +15,7 @@ import { ProjectListItemComponent } from './components/project-list-item/project
 import { ProjectInfoComponent } from './components/project-info/project-info.component';
 import { EditProjectModalComponent } from './components/edit-project-modal/edit-project-modal.component';
 import { NewProjectModalComponent } from './components/new-project-modal/new-project-modal.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -32,5 +33,6 @@ import { NewProjectModalComponent } from './components/new-project-modal/new-pro
     NewProjectModalComponent,
   ],
   imports: [CommonModule, BoardsRoutingModule, SharedModule],
+  providers: [UserService],
 })
 export class BoardsModule {}

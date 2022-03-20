@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SignUp } from '../models/SignUp';
 import { Login } from '../models/Login';
 import { catchError, map, Observable, of } from 'rxjs';
+import { ROOT_URL } from 'src/assets/constants';
 
-const ROOT_URL = 'http://localhost:8080/api';
 const TOKEN = 'TOKEN';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,7 +20,7 @@ export class AuthService {
 
   public login(loginRequest: Login): Observable<boolean> {
     return this.http
-      .post(ROOT_URL + '/auth/login', loginRequest, {
+      .post(`${ROOT_URL}/auth/login`, loginRequest, {
         ...httpOptions,
         observe: 'response',
         responseType: 'text',
@@ -39,7 +39,7 @@ export class AuthService {
 
   public signUp(signUpRequest: SignUp): Observable<boolean> {
     return this.http
-      .post(ROOT_URL + '/auth/signup', signUpRequest, {
+      .post(`${ROOT_URL}/auth/signup`, signUpRequest, {
         ...httpOptions,
         observe: 'response',
         responseType: 'text',
@@ -55,7 +55,6 @@ export class AuthService {
 
   public logout() {
     this.http.post(`${ROOT_URL}/auth/logout`, {}).subscribe((_) => {
-      console.log(_);
       localStorage.removeItem(TOKEN);
     });
   }
@@ -77,7 +76,7 @@ export class AuthService {
 
   public checkExist(fieldName: string, fieldValue: string): Observable<string> {
     return this.http.get(
-      ROOT_URL + '/user/exist/' + fieldName + '/' + fieldValue,
+      `${ROOT_URL}'/user/exist/'${fieldName}/${fieldValue}`,
       {
         ...httpOptions,
         responseType: 'text',
