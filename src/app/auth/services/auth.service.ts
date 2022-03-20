@@ -75,12 +75,9 @@ export class AuthService {
   }
 
   public checkExist(fieldName: string, fieldValue: string): Observable<string> {
-    return this.http.get(
-      `${ROOT_URL}'/user/exist/'${fieldName}/${fieldValue}`,
-      {
-        ...httpOptions,
-        responseType: 'text',
-      }
-    );
+    return this.http.get(`${ROOT_URL}/user/exist/${fieldName}/${fieldValue}`, {
+      ...httpOptions,
+      responseType: 'text',
+    });
   }
 }
