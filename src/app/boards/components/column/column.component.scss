@@ -1,0 +1,32 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+:host {
+  padding-inline: rem(16px);
+  min-width: rem(280px);
+  width: 100%;
+  max-width: rem(400px);
+  border-right: solid 1px #dadada;
+
+  &:last-of-type {
+    border-right: none;
+  }
+
+  .column-heading {
+    padding-inline: rem(8px);
+    border-bottom: 2px solid #454545;
+    background-color: #fff;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      color: #9a9a9a;
+    }
+  }
+
+  .column-tasks {
+    padding-top: rem(16px);
+    min-height: 40vh;
+  }
+}

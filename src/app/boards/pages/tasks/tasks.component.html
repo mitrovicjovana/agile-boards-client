@@ -1,1 +1,14 @@
-<p>tasks works!</p>
+<div fxLayout="row" fxLayoutAlign="space-between start" class="container">
+  <div fxFlex="60" class="project-details">
+    <h1 class="mat-display-1 project-name">Project name</h1>
+    <p class="project-description">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta,
+      necessitatibus consectetur veritatis aliquid autem, consequuntur
+      accusantium sint facere, soluta omnis suscipit!
+    </p>
+  </div>
+  <button mat-flat-button color="primary" (click)="openNewTaskModal()">
+    Create task
+  </button>
+</div>
+<app-board></app-board>

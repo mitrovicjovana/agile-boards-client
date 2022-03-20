@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Edit project - {{ data.name }}</h1>
+<p>{{ data.user.firstName + " " + data.user.lastName }}</p>
+<mat-dialog-content>
+  <form (ngSubmit)="submitForm()" [formGroup]="editProjectForm">
+    <div fxLayout="column">
+      <mat-form-field
+        class="example-full-width"
+        appearance="standard"
+        floatLabel="always"
+      >
+        <mat-label>Project name</mat-label>
+        <input matInput placeholder="Type project name" [formControl]="name" />
+        <mat-error *ngIf="name.hasError('required')">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        class="example-full-width"
+        appearance="standard"
+        floatLabel="always"
+      >
+        <mat-label>Project description</mat-label>
+        <textarea
+          matInput
+          placeholder="Type description"
+          [formControl]="description"
+        ></textarea>
+        <mat-error *ngIf="description.hasError('required')">
+          Description is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="16" fxLayoutAlign="end">
+      <button mat-button color="primary" (click)="closeDialog()">Cancel</button>
+      <button mat-flat-button color="primary" type="submit">Update</button>
+    </div>
+  </form>
+</mat-dialog-content>

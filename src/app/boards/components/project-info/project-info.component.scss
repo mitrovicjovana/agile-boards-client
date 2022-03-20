@@ -1,0 +1,23 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+h1 {
+  margin-bottom: rem(10px) !important;
+}
+
+.owner {
+  text-transform: uppercase;
+}
+
+.description {
+  margin-top: rem(64px);
+}
+
+.created-at {
+  margin-top: rem(32px);
+  color: #9a9a9a;
+}
+
+.btns > button {
+  margin-right: rem(32px);
+  padding: 0 rem(4px);
+}

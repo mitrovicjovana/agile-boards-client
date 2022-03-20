@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'projects', pathMatch: 'full', component: ProjectsComponent },
       { path: 'tasks', pathMatch: 'full', component: TasksComponent },
       { path: 'profile', pathMatch: 'full', component: UserComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'tasks' },
+      { path: '', pathMatch: 'full', redirectTo: 'projects' },
     ],
   },
 ];

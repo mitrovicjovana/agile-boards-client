@@ -1,0 +1,13 @@
+<mat-card (click)="onShowDetails(project)">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <mat-card-title>{{ project.name }}</mat-card-title>
+      <mat-card-content>
+        <span>{{ date | date: "longDate" }}</span>
+      </mat-card-content>
+    </div>
+    <button mat-icon-button color="accent">
+      <mat-icon> keyboard_arrow_right </mat-icon>
+    </button>
+  </div>
+</mat-card>

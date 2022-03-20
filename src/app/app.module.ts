@@ -18,7 +18,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     CoreModule,
     SharedModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

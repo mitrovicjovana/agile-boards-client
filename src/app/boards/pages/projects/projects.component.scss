@@ -1,0 +1,32 @@
+@use "../../../../styles/abstract/abstract" as *;
+
+.project-container {
+  background-color: #f2f2f2;
+  padding-block: rem(32px);
+  min-height: calc(100vh - rem(80px));
+
+  .page-info {
+    padding-bottom: rem(32px);
+  }
+
+  .projects-heading {
+    margin-bottom: rem(16px);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .projects-list {
+    width: 100%;
+  }
+
+  .project-info {
+    position: sticky;
+    top: rem(32px);
+    width: 100%;
+  }
+
+  p {
+    color: #454545;
+  }
+}

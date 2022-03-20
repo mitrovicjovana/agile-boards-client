@@ -1,1 +1,47 @@
-<p>projects works!</p>
+<div class="container project-container">
+  <div
+    fxLayout.lt-md="column"
+    fxLayoutAlign.lt-md="center flex-start"
+    fxLayout.gt-sm="row"
+    fxLayoutAlign.gt-sm="space-between center"
+    fxLayoutAlign="space-between start"
+    class="page-info"
+  >
+    <div fxFlex="60">
+      <h1 class="mat-display-1 projects-heading">Projects</h1>
+      <p>Pick a project to start working with, or create a new one.</p>
+    </div>
+    <button mat-flat-button color="primary" (click)="openNewProjectModal()">
+      Create new project
+    </button>
+  </div>
+  <div
+    fxLayout.lt-md="column"
+    fxLayoutAlign.lt-md="center flex-start"
+    fxLayout.gt-sm="row"
+    fxLayoutAlign.gt-sm="space-between flex-start"
+    fxLayoutGap="24"
+  >
+    <div class="projects-list" fxFlex.lt-md="100" fxFlex.gt-sm="50">
+      <app-project-list-item
+        *ngFor="let project of projects"
+        [project]="project"
+        (showProjectDetails)="showProjectDetails(project)"
+      ></app-project-list-item>
+    </div>
+
+    <div
+      *ngIf="openedProject"
+      class="project-info"
+      fxFlex.gt-sm="100"
+      fxFlex.lt-md="50"
+    >
+      <app-project-info
+        [project]="openedProject"
+        (openTasksPage)="openTasksPage(openedProject)"
+        (editProject)="openEditProjectModal(openedProject)"
+        (deleteProject)="deleteProject(openedProject)"
+      ></app-project-info>
+    </div>
+  </div>
+</div>
