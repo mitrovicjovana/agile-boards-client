@@ -11,7 +11,7 @@ const routes: Routes = [
     component: BoardsComponent,
     children: [
       { path: 'projects', pathMatch: 'full', component: ProjectsComponent },
-      { path: 'tasks', pathMatch: 'full', component: TasksComponent },
+      { path: 'tasks/:id', pathMatch: 'full', component: TasksComponent },
       { path: 'profile', pathMatch: 'full', component: UserComponent },
       { path: '', pathMatch: 'full', redirectTo: 'projects' },
     ],

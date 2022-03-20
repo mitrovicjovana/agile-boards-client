@@ -8,7 +8,6 @@ import { Project } from '../../models/Project';
 })
 export class ProjectInfoComponent implements OnInit {
   @Input() project!: Project;
-  @Output() openTasksPage: EventEmitter<Project> = new EventEmitter();
   @Output() editProject: EventEmitter<Project> = new EventEmitter();
   @Output() deleteProject: EventEmitter<Project> = new EventEmitter();
   date?: string;
@@ -17,10 +16,6 @@ export class ProjectInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.date = `${this.project.createdAt[1]}/${this.project.createdAt[2]}/${this.project.createdAt[0]}`;
-  }
-
-  onShowTasks(project: Project) {
-    this.openTasksPage.emit();
   }
 
   onEdit(project: Project) {
