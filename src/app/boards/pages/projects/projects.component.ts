@@ -6,69 +6,6 @@ import { NewProject } from '../../models/NewProject';
 import { Project } from '../../models/Project';
 import { ProjectService } from '../../services/project.service';
 
-const _projects: Project[] = [
-  {
-    id: 'one',
-    createdAt: [2022, 2, 3, 21, 35, 2],
-    description: 'string',
-    name: 'first project',
-    user: {
-      id: 'string',
-      firstName: 'name',
-      lastName: 'last',
-      username: 'username',
-      password: 'pasword',
-      email: 'email@mail.com',
-      isEnabled: true,
-    },
-  },
-  {
-    id: 'two',
-    createdAt: [2022, 2, 3, 21, 35, 2],
-    description: 'string',
-    name: 'second project',
-    user: {
-      id: 'string',
-      firstName: 'name',
-      lastName: 'last',
-      username: 'username',
-      password: 'pasword',
-      email: 'email@mail.com',
-      isEnabled: true,
-    },
-  },
-  {
-    id: 'three',
-    createdAt: [2022, 2, 3, 21, 35, 2],
-    description: 'string',
-    name: 'third project',
-    user: {
-      id: 'string',
-      firstName: 'name',
-      lastName: 'last',
-      username: 'username',
-      password: 'pasword',
-      email: 'email@mail.com',
-      isEnabled: true,
-    },
-  },
-  {
-    id: 'four',
-    createdAt: [2022, 2, 3, 21, 35, 2],
-    description: 'string',
-    name: 'fourth project',
-    user: {
-      id: 'string',
-      firstName: 'name',
-      lastName: 'last',
-      username: 'username',
-      password: 'pasword',
-      email: 'email@mail.com',
-      isEnabled: true,
-    },
-  },
-];
-
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -85,10 +22,9 @@ export class ProjectsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.projectService.getAllProjects().subscribe((response) => {
-    //   this.projects = response;
-    // });
-    this.projects = _projects;
+    this.projectService.getAllProjects().subscribe((response) => {
+      this.projects = response;
+    });
   }
 
   showProjectDetails(project: Project) {

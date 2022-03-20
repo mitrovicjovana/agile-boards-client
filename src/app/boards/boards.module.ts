@@ -16,6 +16,7 @@ import { ProjectInfoComponent } from './components/project-info/project-info.com
 import { EditProjectModalComponent } from './components/edit-project-modal/edit-project-modal.component';
 import { NewProjectModalComponent } from './components/new-project-modal/new-project-modal.component';
 import { UserService } from './services/user.service';
+import { NewTaskModalComponent } from './components/new-task-modal/new-task-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserService } from './services/user.service';
     ProjectInfoComponent,
     EditProjectModalComponent,
     NewProjectModalComponent,
+    NewTaskModalComponent,
   ],
   imports: [CommonModule, BoardsRoutingModule, SharedModule],
   providers: [UserService],
