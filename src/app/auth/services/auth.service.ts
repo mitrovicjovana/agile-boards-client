@@ -54,8 +54,10 @@ export class AuthService {
   }
 
   public logout() {
-    // TODO: Make http req to logout
-    localStorage.removeItem(TOKEN);
+    this.http.post(`${ROOT_URL}/auth/logout`, {}).subscribe((_) => {
+      console.log(_);
+      localStorage.removeItem(TOKEN);
+    });
   }
 
   public isLoggedIn(): boolean {

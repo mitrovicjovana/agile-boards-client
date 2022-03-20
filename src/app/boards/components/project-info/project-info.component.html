@@ -1,1 +1,19 @@
-<p>project-info works!</p>
+<div fxLayout="row" fxLayoutAlign="space-between flex-start">
+  <h1 class="mat-display-1 projects-heading">{{ project.name }}</h1>
+  <button mat-flat-button color="accent" (click)="onShowTasks(project)">
+    Show tasks
+  </button>
+</div>
+<p class="owner">{{ project.user.firstName + " " + project.user.firstName }}</p>
+<p class="description">
+  {{ project.description }}
+</p>
+<p class="created-at">{{ date | date: "longDate" }}</p>
+<div class="btns">
+  <button mat-button color="primary" (click)="onEdit(project)">
+    Edit project
+  </button>
+  <button mat-button color="accent" (click)="onDelete(project)">
+    Delete project
+  </button>
+</div>

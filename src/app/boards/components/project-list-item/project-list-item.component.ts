@@ -14,7 +14,7 @@ export class ProjectListItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.date = `${this.project.createdAt[2]}/${this.project.createdAt[1]}/${this.project.createdAt[0]}`;
+    this.date = `${this.project.createdAt[1]}/${this.project.createdAt[2]}/${this.project.createdAt[0]}`;
   }
 
   onShowDetails(project: Project) {

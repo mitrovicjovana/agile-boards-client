@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatIconModule,
     MatCardModule,
+    MatDialogModule,
   ],
   exports: [
     CommonModule,
@@ -29,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatIconModule,
     MatCardModule,
+    MatDialogModule,
   ],
 })
 export class SharedModule {}

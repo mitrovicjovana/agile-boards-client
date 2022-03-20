@@ -20,6 +20,11 @@
     width: 100%;
   }
 
+  .project-info {
+    position: sticky;
+    top: rem(32px);
+  }
+
   p {
     color: #454545;
   }

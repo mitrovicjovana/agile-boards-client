@@ -13,6 +13,8 @@ import { TaskComponent } from './components/task/task.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ProjectListItemComponent } from './components/project-list-item/project-list-item.component';
 import { ProjectInfoComponent } from './components/project-info/project-info.component';
+import { EditProjectModalComponent } from './components/edit-project-modal/edit-project-modal.component';
+import { NewProjectModalComponent } from './components/new-project-modal/new-project-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ProjectInfoComponent } from './components/project-info/project-info.com
     TagComponent,
     ProjectListItemComponent,
     ProjectInfoComponent,
+    EditProjectModalComponent,
+    NewProjectModalComponent,
   ],
   imports: [CommonModule, BoardsRoutingModule, SharedModule],
 })

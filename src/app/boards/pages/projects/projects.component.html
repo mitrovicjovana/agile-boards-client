@@ -17,9 +17,9 @@
   </div>
   <div
     fxLayout.lt-md="column"
-    fxLayoutAlign.lt-md="center center"
+    fxLayoutAlign.lt-md="center flex-start"
     fxLayout.gt-sm="row"
-    fxLayoutAlign.gt-sm="space-between center"
+    fxLayoutAlign.gt-sm="space-between flex-start"
     fxLayoutGap="24"
   >
     <div class="projects-list" fxFlex.lt-md="100" fxFlex.gt-sm="50">
@@ -30,8 +30,18 @@
       ></app-project-list-item>
     </div>
 
-    <div class="project-info" fxFlex.gt-sm="100" fxFlex.lt-md="50">
-      <app-project-info></app-project-info>
+    <div
+      *ngIf="openedProject"
+      class="project-info"
+      fxFlex.gt-sm="100"
+      fxFlex.lt-md="50"
+    >
+      <app-project-info
+        [project]="openedProject"
+        (openTasksPage)="openTasksPage(openedProject)"
+        (editProject)="openEditProjectModal(openedProject)"
+        (deleteProject)="deleteProject(openedProject)"
+      ></app-project-info>
     </div>
   </div>
 </div>
