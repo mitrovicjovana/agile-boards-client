@@ -5,6 +5,7 @@ import { EditProjectModalComponent } from '../../components/edit-project-modal/e
 import { NewProject } from '../../models/NewProject';
 import { Project } from '../../models/Project';
 import { ProjectService } from '../../services/project.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-projects',
@@ -12,9 +13,11 @@ import { ProjectService } from '../../services/project.service';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
+  // allProjects?: Project[] | any = [];
   projects?: Project[] | any = [];
   openedProject?: Project;
   newProject: NewProject = { name: '', description: '' };
+  searchBar: FormControl = new FormControl('');
 
   constructor(
     private projectService: ProjectService,
@@ -25,6 +28,12 @@ export class ProjectsComponent implements OnInit {
     this.projectService.getAllProjects().subscribe((response) => {
       this.projects = response;
     });
+
+    this.searchBar.valueChanges.subscribe((value) =>
+      this.projectService
+        .searchProjects(value)
+        .subscribe((res) => (this.projects = res))
+    );
   }
 
   showProjectDetails(project: Project) {

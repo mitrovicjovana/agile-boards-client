@@ -17,6 +17,15 @@ const httpOptions = {
 export class ProjectService {
   constructor(private http: HttpClient) {}
 
+  public searchProjects(searchTerm: string) {
+    return this.http.get(`${ROOT_URL}/project/search`, {
+      ...httpOptions,
+      params: {
+        searchTerm,
+      },
+    });
+  }
+
   public getAllProjects() {
     return this.http.get(`${ROOT_URL}/project`, {
       ...httpOptions,
