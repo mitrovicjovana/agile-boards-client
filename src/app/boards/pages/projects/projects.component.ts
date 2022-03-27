@@ -13,7 +13,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-  // allProjects?: Project[] | any = [];
   projects?: Project[] | any = [];
   openedProject?: Project;
   newProject: NewProject = { name: '', description: '' };

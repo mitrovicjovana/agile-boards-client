@@ -9,8 +9,6 @@ import { HeaderService } from '../../services/header.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  username!: string;
-
   constructor(
     public headerService: HeaderService,
     public authService: AuthService,
